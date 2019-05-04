@@ -13,7 +13,10 @@
 <script>
 export default {
   name: 'current-conditions',
-  props: ['conditions']
+  props: ['conditions'],
+  components: {
+    
+  },
 }
 </script>
 

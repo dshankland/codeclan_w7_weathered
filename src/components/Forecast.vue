@@ -2,17 +2,25 @@
   <div class="forecast">
     <h1>Hourly Forecast</h1>
     <div v-for="(hour, index) in forecast" class="hourly-forecast">
-      <h4>{{hour.timestamp_local.slice(11)}}</h4>
+      <HourlyCondition v-if="hour" :hour="hour" />
+      <!-- <h4>{{hour.timestamp_local.slice(11).slice(0,5)}}</h4>
       <h4><br>{{hour.weather.description}}</h4>
       <img v-bind:src="'https://www.weatherbit.io/static/img/icons/' + hour.weather.icon + '.png'" width=80px>
+      <p>{{hour.temp}} &deg;C ({{hour.app_temp}} &deg;C)</p> -->
     </div>
   </div>
 </template>
 
 <script>
+import HourlyCondition from '@/components/HourlyCondition.vue';
+
 export default {
   name: 'hourly-forecast',
-  props: ['forecast']
+  props: ['forecast'],
+  components: {
+    HourlyCondition
+  },
+
 }
 </script>
 
@@ -21,7 +29,7 @@ export default {
 .forecast {
   width: 100%;
   text-align: center;
-  height: 300px;
+  height: 350px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -31,7 +39,7 @@ export default {
   display: inline-block;
   border: 1px solid black;
   width: 120px;
-  height: 210px;
+  height: 250px;
   vertical-align: middle;
 }
 

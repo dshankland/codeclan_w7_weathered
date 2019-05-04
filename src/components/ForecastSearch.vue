@@ -27,11 +27,13 @@ export default {
   },
   methods: {
     searchForecastData: function (){
+      if (this.searchString) {
       fetch(`https://api.weatherbit.io/v2.0/current?city=${this.searchString}&key=${apiKey}`)
       .then(response => response.json())
       .then(data => {
         this.searchForecast = data;
       });
+    };
     },
 
   },
