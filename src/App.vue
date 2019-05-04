@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="view">
     <Header text="Weathered"/>
-    <router-view id="view />"
+    <router-view id="view" />
   </div>
 
 </template>
@@ -10,7 +10,10 @@
 import Header from '@/components/Header';
 
 export default {
-  components: { Header }
+  name: 'app',
+  components: {
+    Header
+  }
 }
 </script>
 
