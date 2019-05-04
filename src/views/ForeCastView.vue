@@ -1,7 +1,8 @@
 <template lang="html">
   <div id="view">
     <Conditions v-if="currentConditions" :conditions="currentConditions.data[0]" />
-
+    <Forecast v-if="hourlyForecast" :forecast="hourlyForecast.data" />
+    <ForecastSearch />
 
   </div>
 </template>
