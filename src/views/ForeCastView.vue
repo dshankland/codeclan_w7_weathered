@@ -24,19 +24,27 @@ export default {
   data() {
     return {
       currentConditions: null,
-      hourlyForecast: null
+      hourlyForecast: null,
+      ipdata: null
     };
   },
   methods: {
     fetchForecastData: function (){
-      fetch(`https://api.weatherbit.io/v2.0/current?ip=auto&key=${apiKey}`)
+      fetch('https://ipapi.co/json')
       .then(response => response.json())
       .then(data => {
-        this.currentConditions = data;
-        fetch(`https://api.weatherbit.io/v2.0/forecast/hourly/?lat=${this.currentConditions.data[0].lat}&lon=${this.currentConditions.data[0].lon}&key=${apiKey}`)
+        this.ipdata = data;
+        // console.log(this.ipdata);
+        // fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherbit.io/v2.0/current?ip=auto&key=${apiKey}`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherbit.io/v2.0/current?lat=${this.ipdata.latitude}&lon=${this.ipdata.longitude}&key=${apiKey}`)
         .then(response => response.json())
-        .then(data =>{
-          this.hourlyForecast = data;
+        .then(data => {
+          this.currentConditions = data;
+          fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherbit.io/v2.0/forecast/hourly/?lat=${this.currentConditions.data[0].lat}&lon=${this.currentConditions.data[0].lon}&key=${apiKey}`)
+          .then(response => response.json())
+          .then(data =>{
+            this.hourlyForecast = data;
+          });
         });
       });
     },

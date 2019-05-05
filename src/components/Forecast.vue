@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="forecast">
-    <h1>Hourly Forecast</h1>
+    <h2>Hourly Forecast</h2>
     <div v-for="(hour, index) in forecast" class="hourly-forecast">
       <HourlyCondition v-if="hour" :hour="hour" />
       <!-- <h4>{{hour.timestamp_local.slice(11).slice(0,5)}}</h4>
@@ -29,7 +29,7 @@ export default {
 .forecast {
   width: 100%;
   text-align: center;
-  height: 350px;
+  height: 300px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -38,8 +38,8 @@ export default {
 .hourly-forecast {
   display: inline-block;
   border: 1px solid black;
-  width: 120px;
-  height: 250px;
+  width: 100px;
+  height: 220px;
   vertical-align: middle;
 }
 

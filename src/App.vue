@@ -18,4 +18,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+#view {
+  font-family: 'Merriweather Sans', sans-serif;
+}
 </style>
