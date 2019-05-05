@@ -36,7 +36,7 @@ export default {
       .then(response => response.json())
       .then(data => {
         this.searchForecast = data;
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherbit.io/v2.0/forecast/hourly/?lat=${this.searchForecast.data[0].lat}&lon=${this.searchForecast.data[0].lon}&key=${apiKey}`, {headers: {'Content-Type': 'application/json'}})
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherbit.io/v2.0/forecast/hourly/?lat=${this.searchForecast.data[0].lat}&lon=${this.searchForecast.data[0].lon}&key=${apiKey}`)
         .then(response => response.json())
         .then(data =>{
           this.searchHourlyForecast = data;
